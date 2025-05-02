@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/java:1-21-bullseye
 
 # install Tomcat
-ENV TOMCAT_VERSION=9.0.85
+ENV TOMCAT_VERSION=9.0.104
 RUN curl -fsSL https://downloads.apache.org/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz \
     | tar -xz -C /usr/local/ && \
     ln -s /usr/local/apache-tomcat-$TOMCAT_VERSION /usr/local/tomcat && \
