@@ -1,16 +1,14 @@
 package com.aiful.ryogo.demo.dev_container_demo.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HelloWorldController {
 
     @PostMapping("hello")
-    @ResponseBody
     public String hello() {
-        return "hello";
+        return "Hello World!";
     }
-
 }
