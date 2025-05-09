@@ -4,6 +4,7 @@ import com.aiful.ryogo.demo.dev_container_demo.controller.req.CreateUserRequest;
 import com.aiful.ryogo.demo.dev_container_demo.controller.res.ApiResponse;
 import com.aiful.ryogo.demo.dev_container_demo.controller.res.UserResult;
 import com.aiful.ryogo.demo.dev_container_demo.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public ApiResponse<UserResult> saveUser(@RequestBody CreateUserRequest userReq) {
+    public ApiResponse<UserResult> saveUser(@RequestBody @Valid CreateUserRequest userReq) {
         return ApiResponse.success(userService.insertOrUpdateUser(userReq));
     }
 
