@@ -1,6 +1,5 @@
 package com.aiful.ryogo.demo.dev_container_demo.config;
 
-import com.aiful.ryogo.demo.dev_container_demo.interceptor.UserContextInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
