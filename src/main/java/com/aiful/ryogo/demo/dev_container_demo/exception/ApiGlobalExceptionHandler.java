@@ -12,21 +12,18 @@ public class ApiGlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ApiResponse<?> handleValidationException(MethodArgumentNotValidException ex) {
-        ex.printStackTrace();
         String message = ex.getBindingResult().getAllErrors().getFirst().getDefaultMessage();
         return ApiResponse.error(ApiResultCode.BIZ_ERROR.getCode(), message);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ApiResponse<?> handleValidationException(ConstraintViolationException ex) {
-        ex.printStackTrace();
         String message = ex.getConstraintViolations().iterator().next().getMessage();
         return ApiResponse.error(ApiResultCode.BIZ_ERROR.getCode(), message);
     }
 
     @ExceptionHandler(Exception.class)
     public ApiResponse<?> handleGenericException(Exception e) {
-        e.printStackTrace();
         return ApiResponse.fromApiResultCode(ApiResultCode.SYS_ERROR);
     }
 }

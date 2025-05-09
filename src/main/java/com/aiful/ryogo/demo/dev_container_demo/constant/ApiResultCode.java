@@ -7,11 +7,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ApiResultCode {
 
-    SUCCESS(00000, "SUCCESS"),
-    BIZ_ERROR(40000, "BUSINESS_ERROR"),
-    SYS_ERROR(90000, "SYSTEM_ERROR");
+    SUCCESS("00000", "SUCCESS"),
+    BIZ_ERROR("40000", "BUSINESS_ERROR"),
+    SYS_ERROR("90000", "SYSTEM_ERROR");
 
-    private final int code;
+    private final String code;
     private final String message;
 
 }

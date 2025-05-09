@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApiResponse<T> {
-    private int code;
+    private String code;
     private String message;
     private T data;
 
@@ -21,7 +21,7 @@ public class ApiResponse<T> {
         return new ApiResponse<>(ApiResultCode.SUCCESS.getCode(), message, data);
     }
 
-    public static ApiResponse<?> error(int code, String message) {
+    public static ApiResponse<?> error(String code, String message) {
         return new ApiResponse<>(code, message, null);
     }
 
