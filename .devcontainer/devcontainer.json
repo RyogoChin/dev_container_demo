@@ -5,11 +5,6 @@
 	"workspaceFolder": "/workspace",
 
 	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "true",
-			"installGradle": "false"
-		},
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": true,
 			"configureZshAsDefaultShell": true,
@@ -19,6 +14,7 @@
 			"username": "developer",
 			"nonFreePackages": false
 		},
+		"ghcr.io/devcontainers-extra/features/maven-sdkman:2": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers-extra/features/wget-apt-get:1": {},
 		"ghcr.io/devcontainers/features/aws-cli:1": {}
@@ -26,7 +22,7 @@
 
 	"forwardPorts": [8080, 3306, 5005],
 
-	"postCreateCommand": "cd /workspace",
+	"postCreateCommand": "sudo chown -R developer:developer /home/developer",
 
 	"customizations" : {
 		"vscode": {
@@ -40,7 +36,7 @@
 				"redhat.vscode-yaml",
 				"esbenp.prettier-vscode",
 				"editorconfig.editorconfig"
-			],
+			]
 		}
 	},
 	"remoteUser": "developer"
