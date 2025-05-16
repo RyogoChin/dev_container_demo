@@ -1,11 +1,7 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-	"name": "Java + MySQL + Tomcat",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-//	"image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+	"name": "Container of dev_container_demo",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "javaapp",
+	"service": "app",
 	"workspaceFolder": "/workspace",
 
 	"features": {
@@ -13,23 +9,39 @@
 			"version": "none",
 			"installMaven": "true",
 			"installGradle": "false"
-		}
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"installOhMyZshConfig": true,
+			"upgradePackages": true,
+			"username": "developer",
+			"nonFreePackages": false
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers-extra/features/wget-apt-get:1": {},
+		"ghcr.io/devcontainers/features/aws-cli:1": {}
 	},
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	 "forwardPorts": [8080, 3306, 5005],
+	"forwardPorts": [8080, 3306, 5005],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	 "postCreateCommand": "echo 'Container ready'",
+	"postCreateCommand": "cd /workspace",
 
-	// Configure tool-specific properties.
-  "customizations" : {
-    "jetbrains" : {
-      "backend" : "IntelliJ"
-    }
-  },
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	 "remoteUser": "root"
-//	"remoteUser": "IntelliJ"
+	"customizations" : {
+		"vscode": {
+			"settings": {
+			},
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"pivotal.vscode-spring-boot",
+				"gabrielbb.vscode-lombok",
+				"redhat.vscode-xml",
+				"redhat.vscode-yaml",
+				"esbenp.prettier-vscode",
+				"editorconfig.editorconfig"
+			],
+		}
+	},
+	"remoteUser": "developer"
 }

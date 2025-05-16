@@ -1,6 +1,6 @@
-version: "3.9"
+version: "3.8"
 services:
-    javaapp:
+    app:
         build:
             context: .
             dockerfile: Dockerfile
@@ -9,6 +9,7 @@ services:
             - "5005:5005"     # Java Debug
         volumes:
             - ..:/workspace:cached
+            - maven-cache:/home/developer/.m2
         environment:
             - MYSQL_HOST=mysql
             - MYSQL_PORT=3306
@@ -16,14 +17,15 @@ services:
     mysql:
         image: mysql:8.0
         environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: appdb
-            MYSQL_USER: dev
-            MYSQL_PASSWORD: devpass
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=appdb
+            - MYSQL_USER=dev
+            - MYSQL_PASSWORD=devpass
         ports:
             - "3306:3306"
         volumes:
             - mysql-data:/var/lib/mysql
 
 volumes:
+    maven-cache:
     mysql-data:
